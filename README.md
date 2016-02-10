@@ -26,7 +26,9 @@ Usage:
       GAAGTGCGTGCCTGTAGTCCCAACTGCTCAGGAGGCTGAGGCAGGAGAATCGCTTGAACCTGGGAAGTA
       >HWI-ST933:227:C8C7YACXX:1:2106:16798:18157
       CGTCTCTACTAAAAAAAAATACAAAATTAACTGGGTGTGGTGGCACACGCCTGTAATCCCAGCTACTCG
+
   - **ref_seq.fa**: fasta file with the reference sequence(s) (more than one allowed).
+
       >gi|555853|gb|U13369.1|HSU13369 Human ribosomal DNA complete repeating unit
       GCTGACACGCTGTCCTCTGGCGACCTGTCGTCGGAGAGGTTGGGCCTCCGGATGCGCGCGGGGCTCTGGC
       CTCACGGTGACCGGCTAGCCGGCCGCGCTCCTGCCTTGAGCCGCCTGCCGCGGCCCGCGGGCCTGCTGTT
@@ -37,6 +39,7 @@ Usage:
       ATCGATGTGGTGACGTCGTGCTCTCCCGGGCCGGGTCCGAGCCGCGACGGGCGAGGGGCGGACGTTCGTG
       GCGAACGGGACCGTCCTTCTCGCTCCGCCCGCGCGGTCCCCTCGTCTGCTCCTCTCCCCGCCCGCCGGCC
       GGCGTGTGGGAAGGCGTGGGGTGCGGACCCCGGCCCGACCTCGCCGTCCCGCCCGCCGCCTTCGCTTCGC
+
   - **nentriesref**: number of reference sequences contained in ref_seq.fa
 
 
@@ -54,21 +57,34 @@ Usage:
    Package contents:
  
   |- bin/
+
       |- ExactMatches
+
   |- include/
+
       |- FastaFile.h
+
       |- Sequence.h
+
       |- utils.h
+
   |- obj/ (object files land here. Not included in repository)
+
   |- src/
       |- ExactMatches.cc  (main)
+
       |- FastaFile.cc
+
       |- Sequence.cc
+
       |- utils.cc   (general functions)
+
   |- test_files/
       |- reads.fa
+
       |- ref_seq.fa
 
+## Tests
 
 In folder test_files there are two test files: 
 
