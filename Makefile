@@ -5,7 +5,8 @@ TARGET	= ExactMatches
 CC	= g++
 
 # compiling flags
-CFLAGS   = -Wall -std=gnu++0x -Iinclude/
+CFLAGS   = -Wall -O3  -Iinclude/
+LFLAGS   = -Wall -O3 
 
 LINKER   = g++ -o
 

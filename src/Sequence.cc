@@ -6,7 +6,7 @@
 void Sequence::RevComp(){
    rev = std::string(seq.rbegin(),seq.rend());
    for(size_t i = 0; i < rev.length(); i++){
-        complement(rev[i]);
+        rev[i]=LT[rev[i]];
    }
 }
 Sequence::Sequence(std::string const& str,bool reverse):

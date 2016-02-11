@@ -1,7 +1,9 @@
 #include <iostream>
+#include <cstdlib>
 #include <fstream>
 #include "Sequence.h"
 #include "FastaFile.h"
+#include "utils.h"
 
 // This function checks which reads
 // of a fasta file or its reverse complements 
@@ -10,13 +12,15 @@
 // Usage: ./bin/reverseComplement <reads.fa> <ref_seq.fa> nentries_fasta
 int main(int argc, char **argv )
 {
-   if( argc != 4 ){
-        std::cerr << "Usage: "<<argv[0]<<" <reads.fa> <ref_seq.fa> nentriesref" << std::endl;
+   if( argc != 5 ){
+        std::cerr << "Usage: "<<argv[0]<<" <reads.fa> <ref_seq.fa> nentriesref output_prefix" << std::endl;
         return -1;
     }
+    
     int n=atoi(argv[3]);
     FastaFile rRNA(argv[2],n); 
     bool match_seq[n],match_rev[n];
+    init_map(LT);
     std::ifstream input(argv[1]);
     if(!input.good()){
         std::cerr << "Error opening '"<<argv[1]<<"'. Bailing out." << std::endl;
@@ -24,6 +28,10 @@ int main(int argc, char **argv )
     }
     std::string line, name, content,reverse;
     int cc=0;
+    std::string oname_match=argv[4]+std::string("_exactmatch.fa");
+    std::string oname_nomatch=argv[4]+std::string("_noexactmatch.fa");
+    std::ofstream ofile_match(oname_match.c_str());
+    std::ofstream ofile_nomatch(oname_nomatch.c_str());
     while( std::getline( input, line ).good() ){
         cc++;
         if(cc%50000==0) std::cerr<< "Currently Reading Read Number: "<< cc << std::endl; 
@@ -35,12 +43,16 @@ int main(int argc, char **argv )
                 rRNA.ContainsSequence(reverse,match_rev);
                 for (int i=0; i<n; i++){
                    if (match_seq[i]){
-                      std::cout << "Read matches fasta entry : " << i << ". Read id: " << name <<std::endl;
-                      std::cout << content << std::endl;
+                      ofile_match << "Read matches fasta entry : " << i << ". Read id: " << name <<std::endl;
+                      ofile_match << content << std::endl;
                    }
                    else if (match_rev[i]){
-                      std::cout << "Reverse Complementary Read matches fasta entry : " << i << ". Read id: " << name <<std::endl;
-                      std::cout << reverse << std::endl;
+                      ofile_match << "Reverse Complementary Read matches fasta entry : " << i << ". Read id: " << name <<std::endl;
+                      ofile_match << reverse << std::endl;
+                   }
+                   else{
+                      ofile_nomatch << "No exact match tofasta entry : " << i << ". Read id: " << name <<std::endl;
+                      ofile_nomatch << content << std::endl;
                    }
                 }
                 name.clear();
@@ -63,17 +75,22 @@ int main(int argc, char **argv )
         reverse=seqfile.GetReverse(); 
         for (int i=0; i<n; i++){
            if (match_seq[i]){
-              std::cout << "Read matches fasta entry : " << i << "Read id: " << name <<std::endl;
-              std::cout << content << std::endl;
+              ofile_match << "Read matches fasta entry : " << i << "Read id: " << name <<std::endl;
+              ofile_match << content << std::endl;
            }
            else if (match_rev[i]){
-              std::cout << "Reverse Complementary Read matches fasta entry : " << i << ". Read id: " << name <<std::endl;
-              std::cout << reverse << std::endl;
+              ofile_match << "Reverse Complementary Read matches fasta entry : " << i << ". Read id: " << name <<std::endl;
+              ofile_match << reverse << std::endl;
+           }
+           else{
+              ofile_nomatch << "No exact match tofasta entry : " << i << ". Read id: " << name <<std::endl;
+              ofile_nomatch << content << std::endl;
            }
         }
-     //   std::cout << reverse  << std::endl;
     }
+    ofile_match.close();
+    ofile_nomatch.close();
  
 
-     return 0; 
+    return 0; 
 }

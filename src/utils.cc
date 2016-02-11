@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "utils.h"
 
-// Gets the DNA-complement of a char
-void complement(char  &c){
-   char LT[255];
-   for (int i = 0;i < 255; i++){
+char LT[255];
+// Initializes the char* map
+void init_map(char *LT){
+   for (int i = 0; i < 255; i++){
       LT[i] = 'N';
    }
    LT['A'] = 'T';
@@ -15,8 +15,8 @@ void complement(char  &c){
    LT['t'] = 'a';
    LT['c'] = 'g';
    LT['g'] = 'c';
-   c = LT[int(c)];
 }
+
 
 // Implements the Knuth-Morris-Pratt pattern matcher
 // to find a substring in a string
@@ -28,8 +28,8 @@ void complement(char  &c){
 
 bool KMP(std::string S, std::string K)
 {
-        int T[K.size()+1];
-        for (size_t i = 0; i < K.size()+1; i++) T[i] = -1;
+        int T[K.size()];
+        for (size_t i = 0; i < K.size(); i++) T[i] = -1; //qua inizializzo tante volte
         bool matches=false;
         
         if(K.size() == 0)
