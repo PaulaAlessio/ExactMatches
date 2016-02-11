@@ -50,7 +50,7 @@ bool KMP(std::string S, std::string K)
                 while(kp != -1  && (kp == int(K.size()) || K[kp] != int(S[sp]))) kp = T[kp];
                 kp++;
                 sp++;
-                if(kp == int(K.size())) matches = true;
+                if(kp == int(K.size())) {matches = true ; break;} ;
         }
         
         return matches;

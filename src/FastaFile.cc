@@ -6,7 +6,7 @@
 #include <fstream>
 FastaFile::FastaFile(std::string fastafile,int n){
     nentries=n;
-    std::ifstream input(fastafile);
+    std::ifstream input(fastafile.c_str());
     if(!input.good()){
         std::cerr << "Error opening '"<<fastafile<<"'. Bailing out." << std::endl;
         throw std::exception();

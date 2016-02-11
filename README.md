@@ -48,33 +48,11 @@ Usage:
 
   - `output_prefix`+"exactmatch.fa": contains reads (or their reverse complementary)
     that match exactly the reference entry [i]. In case it is  the reverse
-    complementary that matches, it is the one to be outputted. 
-      ==> test_files/test_output_exactmatch.fa <==
-      Read matches fasta entry : 0. Read id: HSBGPG Human gene for bone gla protein (BGP)
-      GGCAGATTCCCCCTAGACCCGCCCGCACCATGGTCAGGCATGCCCCTCCTCATCGCTGGGCACAGCCCAGAGGGT
-      Read matches fasta entry : 0. Read id: gufett
-      ATAAACAGTGCTGGAGGCTGGCGGGGCAGGCCAGCTGAGTCCTGAGCAGCAGCCCAGCGCAGCCACCGAGACACC
-      Read matches fasta entry : 0. Read id: gufett
-      ATGAGAGCCCTCACACTCCTCGCCCTATTGGCCCTGGCCGCACTTTGCATCGCTGGCCAGGCAGGTGAGTGCCCC
-      Read matches fasta entry : 0. Read id: gufett
-      CACCTCCCCTCAGGCCGCATTGCAGTGGGGGCTGAGAGGAGGAAGCACCATGGCCCACCTCTTCTCACCCCTTTG
-      Read matches fasta entry : 0. Read id: gufett
-      GCTGGCAGTCCCTTTGCAGTCTAACCACCTTGTTGCAGGCTCAATCCATTTGCCCCAGCTCTGCCCTTGCAGAGG
-
+    complementary that matches, it is the one to be outputted.
+ 
   - `output_prefix`+"noexactmatch.fa": contains reads that do not match exactly
     the reference entry [i], neither do their reverse complementary counterparts.
  
-      ==> test_files/test_output_noexactmatch.fa <==
-      No exact match tofasta entry : 1. Read id: HSBGPG Human gene for bone gla protein (BGP)
-      GGCAGATTCCCCCTAGACCCGCCCGCACCATGGTCAGGCATGCCCCTCCTCATCGCTGGGCACAGCCCAGAGGGT
-      No exact match tofasta entry : 1. Read id: gufett
-      ATAAACAGTGCTGGAGGCTGGCGGGGCAGGCCAGCTGAGTCCTGAGCAGCAGCCCAGCGCAGCCACCGAGACACC
-      No exact match tofasta entry : 1. Read id: gufett
-      ATGAGAGCCCTCACACTCCTCGCCCTATTGGCCCTGGCCGCACTTTGCATCGCTGGCCAGGCAGGTGAGTGCCCC
-      No exact match tofasta entry : 1. Read id: gufett
-      CACCTCCCCTCAGGCCGCATTGCAGTGGGGGCTGAGAGGAGGAAGCACCATGGCCCACCTCTTCTCACCCCTTTG
-      No exact match tofasta entry : 1. Read id: gufett
-      GCTGGCAGTCCCTTTGCAGTCTAACCACCTTGTTGCAGGCTCAATCCATTTGCCCCAGCTCTGCCCTTGCAGAGG
 
 
 ## Installation
@@ -89,23 +67,23 @@ Usage:
 
    Package contents:
  
-  |- bin/ 
-      |- ExactMatches 
-  |- include/ 
-      |- FastaFile.h 
-      |- Sequence.h 
-      |- utils.h 
-  |- obj/ (object files land here. Not included in repository) 
-  |- src/ 
-      |- ExactMatches.cc  (main)  
-      |- FastaFile.cc 
-      |- Sequence.cc 
-      |- utils.cc   (general functions) 
-  |- test_files/ 
-      |- reads.fa 
-      |- ref_seq.fa 
-      |- test_output_exactmatch.fa 
-      |- test_output_noexactmatch.fa 
+  |- bin/      
+      |- ExactMatches    
+  |- include/    
+      |- FastaFile.h   
+      |- Sequence.h  
+      |- utils.h  
+  |- obj/ (object files land here. Not included in repository)  
+  |- src/  
+      |- ExactMatches.cc  (main)   
+      |- FastaFile.cc  
+      |- Sequence.cc  
+      |- utils.cc   (general functions)  
+  |- test_files/  
+      |- reads.fa  
+      |- ref_seq.fa   
+      |- test_output_exactmatch.fa   
+      |- test_output_noexactmatch.fa   
 
 
 ## Tests

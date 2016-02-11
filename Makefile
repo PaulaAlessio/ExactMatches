@@ -5,8 +5,8 @@ TARGET	= ExactMatches
 CC	= g++
 
 # compiling flags
-CFLAGS   = -Wall -O3  -Iinclude/
-LFLAGS   = -Wall -O3 
+CFLAGS   = -Wall -O3 -march=native  -Iinclude/
+LFLAGS   = -Wall 
 
 LINKER   = g++ -o
 

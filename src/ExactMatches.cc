@@ -9,10 +9,10 @@
 // of a fasta file or its reverse complements 
 // are contained in a longer sequence. Looks only for  
 // exact matches. 
-// Usage: ./bin/reverseComplement <reads.fa> <ref_seq.fa> nentries_fasta
+// Usage: ./bin/reverseComplement <reads.fa> <ref_seq.fa> nentries_fasta output_prefix n_threads
 int main(int argc, char **argv )
 {
-   if( argc != 5 ){
+   if( argc != 5){
         std::cerr << "Usage: "<<argv[0]<<" <reads.fa> <ref_seq.fa> nentriesref output_prefix" << std::endl;
         return -1;
     }
