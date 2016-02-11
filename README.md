@@ -11,7 +11,7 @@ This code was generated to look for rRNA exact matching contaminations from toph
 
 Usage: 
 
-   ExactMatches &lt;reads.fa&gt; &lt;ref_seq.fa&gt; nentriesref output_prefix
+   `ExactMatches &lt;reads.fa&gt; &lt;ref_seq.fa&gt; nentriesref output_prefix`
 
  where: 
   - `reads.fa`: fasta file with accepted reads. Example: 
@@ -66,7 +66,7 @@ Usage:
 ## Structure of the package.
 
    Package contents:
- 
+ ```
   |- bin/      
       |- ExactMatches    
   |- include/    
@@ -84,7 +84,7 @@ Usage:
       |- ref_seq.fa   
       |- test_output_exactmatch.fa   
       |- test_output_noexactmatch.fa   
-
+```
 
 ## Tests
 
