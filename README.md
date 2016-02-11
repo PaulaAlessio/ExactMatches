@@ -11,7 +11,7 @@ This code was generated to look for rRNA exact matching contaminations from toph
 
 Usage: 
 
-   `ExactMatches <reads.fa>; <ref_seq.fa>; nentriesref output_prefix`
+   `ExactMatches <reads.fa> <ref_seq.fa> nentriesref output_prefix`
 
  where: 
   - `reads.fa`: fasta file with accepted reads. Example: 
