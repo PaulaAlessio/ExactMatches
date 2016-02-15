@@ -57,48 +57,53 @@ benutzt.
 
 - 3 Filtern wurden von der rRNA-CRUnit Sequenz  mit `biobloommaker` erzeugt: 
 
+```
       | Kmer-Groesse | Ziel           | 
       |--------------|----------------|
       |      25      | default        |
       |      10      | ++ sensitivity | 
       |      50      | ++ specificity | 
       |--------------|----------------|
+```
 
 - `biobloomcategorizer` ist  mit den 3 Filtern gelaufen auf Sample `00_Myclow-ctrl_A_1` `accepted_hits.bam`
    file. F&uuml;r jeden Filter ist ein score gew&auml;hlt:
 
+```
       | Kmer-Groesse | score | Ziel           | 
       |--------------|-------|----------------|
       |      25      |  0.15 | default        |
       |      10      |  0.05 | ++ sensitivity | 
       |      50      |  0.5  | ++ specificity | 
       |--------------|-------|----------------|
+```
       
    Zussamenfassung der Ergebnisse: 
-
-      |              ==> 00_Myclow-ctrl_A_1_bbt_s0p05_summary.tsv <==             |
-      |---------------------------------------------------------------------------|
-      | filter_id         |    hits|  misses|shared|rate_hit|rate_miss|rate_shared|  
-      | rRNA_CRUnit_kmer10|15178416|17948255|     0|0.458193| 0.541807|       0   |
-      | multiMatch        |       0|33126671|     0|       0|        1|       0   |
-      | noMatch           |17948255|15178416|     0|0.541807| 0.458193|       0   |
-      |---------------------------------------------------------------------------|
-      |              ==> 00_Myclow-ctrl_A_1_bbt_s0p5_summary.tsv <==              |
-      |---------------------------------------------------------------------------|
-      | filter_id         |    hits|  misses|shared|rate_hit|rate_miss|rate_shared|  
-      | rRNA_CRUnit_kmer50|  642312|32484359|     0|0.019390|  0.98061|       0   |
-      | multiMatch        |       0|33126671|     0|       0|        1|       0   |
-      | noMatch           |32484359|  642312|     0|0.98061 | 0.019390|       0   |
-      |---------------------------------------------------------------------------|
-      |              ==> 00_Myclow-ctrl_A_1_bbt_summary.tsv <==                   |
-      |---------------------------------------------------------------------------|
-      | filter_id         |    hits|  misses|shared|rate_hit|rate_miss|rate_shared|  
-      |-------------------|--------|--------|------|--------|---------|-----------|
-      | rRNA_CRUnit_25    |  795573|32331098|     0|0.024016| 0.975984|       0   |
-      | multiMatch        |       0|33126671|     0|       0|        1|       0   |
-      | noMatch           |32331098|  795573|     0|0.975984|0.0240161|       0   |
-      |---------------------------------------------------------------------------|
-
+ 
+```
+      |              ==> 00_Myclow-ctrl_A_1_bbt_s0p05_summary.tsv <==             |  
+      |---------------------------------------------------------------------------|  
+      | filter_id         |    hits|  misses|shared|rate_hit|rate_miss|rate_shared|    
+      | rRNA_CRUnit_kmer10|15178416|17948255|     0|0.458193| 0.541807|       0   |  
+      | multiMatch        |       0|33126671|     0|       0|        1|       0   | 
+      | noMatch           |17948255|15178416|     0|0.541807| 0.458193|       0   |  
+      |---------------------------------------------------------------------------|   
+      |              ==> 00_Myclow-ctrl_A_1_bbt_s0p5_summary.tsv <==              |  
+      |---------------------------------------------------------------------------|  
+      | filter_id         |    hits|  misses|shared|rate_hit|rate_miss|rate_shared|    
+      | rRNA_CRUnit_kmer50|  642312|32484359|     0|0.019390|  0.98061|       0   |  
+      | multiMatch        |       0|33126671|     0|       0|        1|       0   |  
+      | noMatch           |32484359|  642312|     0|0.98061 | 0.019390|       0   |  
+      |---------------------------------------------------------------------------|  
+      |              ==> 00_Myclow-ctrl_A_1_bbt_summary.tsv <==                   |  
+      |---------------------------------------------------------------------------|  
+      | filter_id         |    hits|  misses|shared|rate_hit|rate_miss|rate_shared|    
+      |-------------------|--------|--------|------|--------|---------|-----------|  
+      | rRNA_CRUnit_25    |  795573|32331098|     0|0.024016| 0.975984|       0   |  
+      | multiMatch        |       0|33126671|     0|       0|        1|       0   |  
+      | noMatch           |32331098|  795573|     0|0.975984|0.0240161|       0   |  
+      |---------------------------------------------------------------------------|  
+```
 
 - Default Parametern (`score=0.15,kmer=25`) wurden f&uuml;r alle Samples benutzt. 
   (Nur _primary-alignments_ wurden ber&uuml;cksichtigt.)
